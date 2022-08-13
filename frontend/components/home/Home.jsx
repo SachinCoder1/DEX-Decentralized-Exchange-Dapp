@@ -1,5 +1,6 @@
 import React from "react";
 import SampleChart from "./SampleChart";
+import TransferFundBox from "./TransferFundsBox";
 
 export default function Home() {
   return (
@@ -8,7 +9,13 @@ export default function Home() {
       <div className="">
         <SampleChart />
       </div>
-      
+      <div className="flex my-5 p-3 justify-between items-center bg-white shadow-xl">
+        <p>Buying Power</p>
+        <p>12 ETH</p>
+      </div>
+      <div className="my-10 bg-white shadow-xl ">
+        <TransferFundBox />
+      </div>
     </div>
   );
 }
