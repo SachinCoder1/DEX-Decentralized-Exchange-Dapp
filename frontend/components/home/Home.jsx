@@ -14,6 +14,7 @@ export default function Home() {
         <p>12 ETH</p>
       </div>
       <div className="my-10 bg-white shadow-xl ">
+        <h1 className="text-2xl text-center py-5 font-semibold">Transfer Your Funds</h1>
         <TransferFundBox />
       </div>
     </div>
