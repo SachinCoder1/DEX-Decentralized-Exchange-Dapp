@@ -1,8 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Navbar from '../components/navbar/Navbar'
+import Head from "next/head";
+import Image from "next/image";
+import Navbar from "../components/navbar/Navbar";
+import SampleChart from "../components/home/SampleChart";
+import Home from "../components/home/Home";
+import Assets from "../components/right/Assets";
+import { useState } from "react";
 
-export default function Home() {
+export default function Dashboard() {
+  // const [myCoins] = useState([...coins.slice(0, 15)])
   return (
     <div classnames="  ">
       <Head>
@@ -11,10 +16,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='bg-gray-300 min-h-screen'>
+      <main className="bg-gray-300 min-h-screen">
         <Navbar />
+        <div className="flex justify-center gap-x-14 my-5">
+          <div className="w-2/4">
+
+          <Home />
+          </div>
+          <div className="bg-gray-400  w-1/5">
+
+          <Assets coin="BTC" price={0.89} />
+          <Assets coin="Solana" price={-1} />
+          <Assets coin="DOGE" price={7} />
+          <Assets coin="ETH" price={53} />
+          </div>
+        </div>
       </main>
-       
     </div>
-  )
+  );
 }
