@@ -1,24 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { navLinks } from "../../data";
 import {
   AiOutlineMenuUnfold,
   AiOutlineMenuFold,
   AiOutlinePlus,
+  AiOutlineLogin,
 } from "react-icons/ai";
 import Button from "../../subcomponents/btns/Button";
 import { useRouter } from "next/router";
 import Search from "../../subcomponents/Search";
+import { DexContext } from "../../context/DexContext";
+import { BiLogOutCircle } from "react-icons/bi";
 
 export default function Navbar() {
   const [isMobileNavOpen, setisMobileNavOpen] = useState(false); // For toggling the mobile nav
   const router = useRouter();
+  const {connectWallet, logout, shortAccountAddress, isAuthenticated, currentAccount} = useContext(DexContext)
 
   //   If button is there
-  const handleClick = () => {
+  const handleClick = async () => {
     if (isMobileNavOpen) {
       setisMobileNavOpen(false);
     }
+
+    await connectWallet();
+  };
+  const handleLogout = async () => {
+    if (isMobileNavOpen) {
+      setisMobileNavOpen(false);
+    }
+
+    await logout();
   };
   return (
     <div>
@@ -60,14 +73,24 @@ export default function Navbar() {
 
               {/* After all nav links if you want any button in right then it will come here */}
               <div>
-                <Button
-                  text="Text"
-                  icon={<AiOutlinePlus className="text-2xl" />}
+                {
+                  isAuthenticated ?  <Button
+                  text="Logout"
+                  icon={<BiLogOutCircle className="text-2xl" />}
+                  className="className"
+                  onClick={handleLogout}
+                  disabled={false}
+                  fullWidth={false}
+                /> :  <Button
+                  text="Login"
+                  icon={<AiOutlineLogin className="text-2xl" />}
                   className="className"
                   onClick={handleClick}
-                  disabled={false} // If true it enables the loading.
-                  fullWidth={false} // If true it automatically takes width.
+                  disabled={false}
+                  fullWidth={false}
                 />
+                }
+               
               </div>
 
               {/* Hamberger Menu  */}

@@ -2,12 +2,14 @@ import { client } from "../../sanity/SanityClient"
 
 const createUser = async (req, res) => {
   try {
+    console.log("You are in createUser api")
     const userDoc = {
       _type: 'users',
       _id: req.body.walletAddress,
       userName: 'Unnamed',
       address: req.body.walletAddress,
     }
+    console.log(userDoc)
 
     await client.createIfNotExists(userDoc)
 

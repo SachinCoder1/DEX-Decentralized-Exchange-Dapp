@@ -12,7 +12,7 @@ export default function Input({
     <div className="flex justify-center my-6">
       <div className="flex flex-col w-full">
         <label
-          for={id}
+          htmlFor={id}
           className="block text-gray-700 text-base font-semibold mb-2"
         >
           {label}
