@@ -1,7 +1,8 @@
 # FullStack DEX (Decentralized Exchange)
 Complete Full Stack DEX (Decentralized Exchange) using solidity language for Smart Contract, hardhat for Dev Enviroment, and Next.js Framework for frontend and Tailwind CSS for styling.
 
-_Smart Contract Deployed on **Rinkeby Test Network**_ -> 0x1fFF4551195F3864Bc7547258AcC52D020db196d
+_Smart Contract Deployed on **Rinkeby Test Network**_ -> 0x88E19f93e027D0Cb3D5F5A2C91E662ec2cC8dA21
+
 
 
 
@@ -57,3 +58,15 @@ _Smart Contract Deployed on **Rinkeby Test Network**_ -> 0x1fFF4551195F3864Bc754
 
 ## Database
 - Sanity.io (For storing the transactions, and populate all TX history..)
+
+
+
+## Deployed Address :-
+
+
+- DogeToken deployed to: 0x1fFF4551195F3864Bc7547258AcC52D020db196d
+- bitcoinToken contract deployed to: 0xB951a5DE51426E165aAC91166B684F9223951910
+- LinkToken deployed to: 0x6117D2C90B49072Dd234358BEbD7967E5269bD2F
+- DaiToken deployed to: 0xC6A245A71d5DE76c3544fA1CC073D9084712Eb7c
+- UsdcToken deployed to: 0xf73Fb6152713b18b597655E9FDB229bff7133641
+- solanaToken deployed to: 0x3be29B22419B4A76c2Dd3112ed21eb4cee0D98E0
