@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DexContext } from "../../context/DexContext";
 import SampleChart from "./SampleChart";
 import TransferFundBox from "./TransferFundsBox";
 
 export default function Home() {
+  const {currentBalance} = useContext(DexContext)
   return (
     <div className="text-gray-700">
-        <h1 className="text-3xl font-semibold">23 ETH</h1>
+        <h1 className="text-3xl font-semibold">{currentBalance ? currentBalance + " ETH" : "N/A"}</h1>
       <div className="">
         <SampleChart />
       </div>

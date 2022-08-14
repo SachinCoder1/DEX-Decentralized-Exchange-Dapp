@@ -5,6 +5,7 @@ import SampleChart from "../components/home/SampleChart";
 import Home from "../components/home/Home";
 import Assets from "../components/right/Assets";
 import { useState } from "react";
+import axios from 'axios'
 
 export default function Dashboard() {
   // const [myCoins] = useState([...coins.slice(0, 15)])
@@ -24,6 +25,13 @@ export default function Dashboard() {
           <Home />
           </div>
           <div className="bg-gray-400  w-1/5">
+          {/* {myCoins.map(coin => {
+            let price = parseFloat(coin.price)
+            price = price.toFixed(2)
+
+            return <Assets key={coin.uuid} coin={coin} price={price} />
+          })} */}
+          
 
           <Assets coin="BTC" price={0.89} />
           <Assets coin="Solana" price={-1} />
@@ -35,3 +43,39 @@ export default function Dashboard() {
     </div>
   );
 }
+
+
+
+// export const getStaticProps = async () => {
+//   console.log(process.env.NEXT_PUBLIC_COIN_RANKING_RAPIDAPI_HOST, process.env.NEXT_PUBLIC_COIN_RANKING_RAPIDAPI_KEY)
+//   const options = {
+//     method: 'GET',
+//     url: 'https://coinranking1.p.rapidapi.com/coins',
+//     params: {
+//       referenceCurrencyUuid: 'yhjMzLPhuIDl',
+//       timePeriod: '24h',
+//       'tiers[0]': '1',
+//       orderBy: 'marketCap',
+//       orderDirection: 'desc',
+//       limit: '50',
+//       offset: '0'
+//     },
+//     headers: {
+//       'X-RapidAPI-Host': process.env.NEXT_PUBLIC_COIN_RANKING_RAPIDAPI_HOST,
+//       'X-RapidAPI-Key': process.env.NEXT_PUBLIC_COIN_RANKING_RAPIDAPI_KEY,
+//     }
+//   };
+
+//   axios.request(options).then(function (response) {
+//     console.log(response.data);
+//   }).catch(function (error) {
+//     console.error(error);
+//   });
+  
+//   const res = await axios.request(options).then()
+//   const coins = res.data.data.coins
+
+//   return {
+//     props: { coins },
+//   }
+// }

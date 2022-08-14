@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { DexContext } from '../../context/DexContext'
 import BtnMain from '../../subcomponents/btns/Button'
 import Input from '../../subcomponents/inputs/Input'
 // import { RobinhoodContext } from '../context/RobinhoodContext'
@@ -6,28 +7,41 @@ import Input from '../../subcomponents/inputs/Input'
 const styles = {
   inputAmount: `w-1/2 flex items-center justify-center border border-gray-400 rounded-lg p-2 bg-transparent mt-6 `,
   formContainer: `flex items-center`,
-  select: `w-1/2 flex items-center justify-center border border-gray-400 rounded-lg p-2 bg-transparent mt-6`,
+  select: `w-1/2 flex items-center justify-center border border-gray-400 rounded-lg p-2 bg-transparent mb-6`,
   options: `w-1/2 flex items-center justify-center border border-gray-400 rounded-lg p-2 bg-gray-300 mt-6`,
 }
 
 const TransferFundBox = () => {
-//   const {
-//     isAuthenticated,
-//     setAmount,
-//     mint,
-//     setCoinSelect,
-//     coinSelect,
-//     amount,
-//     toCoin,
-//     setToCoin,
-//   } = useContext(RobinhoodContext)
+  const {
+    isAuthenticated,
+    setAmountEntered,
+    mint,
+    setFromCoinSelected,
+    fromCoinSelected,
+    amountEntered,
+    toCoinSelected,
+    setToCoinSelected,
+  } = useContext(DexContext)
+
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    await mint();
+
+ 
+
+
+  }
   return (
     <form className={styles.formContainer}>
+      {/* {fromCoinSelected} and {toCoinSelected} and {amountEntered} */}
       <div className='flex h-full w-full flex-col items-center'>
+        <label className='text-left' htmlFor="from">From</label>
         <select
+        id='from'
           className={styles.select}
-        //   value={coinSelect}
-        //   onChange={e => setCoinSelect(e.target.value)}
+          value={fromCoinSelected}
+          onChange={e => setFromCoinSelected(e.target.value)}
         >
           <option className={styles.options} value='ETH'>
             ETH
@@ -44,11 +58,19 @@ const TransferFundBox = () => {
           <option className={styles.options} value='DAI'>
             DAI
           </option>
+          <option className={styles.options} value='SOL'>
+            SOL
+          </option>
+          <option className={styles.options} value='BTC'>
+            BTC
+          </option>
         </select>
+        <label htmlFor="to">To</label>
         <select
+        id='to'
           className={styles.select}
-        //   value={toCoin}
-        //   onChange={e => setToCoin(e.target.value)}
+          value={toCoinSelected}
+          onChange={e => setToCoinSelected(e.target.value)}
         >
           <option className={styles.options} value='DOGE'>
             DOGE
@@ -62,13 +84,20 @@ const TransferFundBox = () => {
           <option className={styles.options} value='DAI'>
             DAI
           </option>
+          <option className={styles.options} value='SOL'>
+            SOL
+          </option>
+          <option className={styles.options} value='BTC'>
+            BTC
+          </option>
         </select>
         <Input
           placeholder='Amount...'
         //   className={styles.inputAmount}
           type='text'
-        //   value={amount}
-        //   onChange={e => setAmount(e.target.value)}
+          
+          value={amountEntered}
+          onChange={e => setAmountEntered(e.target.value)}
         />
 
         {/* <button
@@ -81,7 +110,7 @@ const TransferFundBox = () => {
         </button> */}
         <div className='my-6'>
 
-        <BtnMain text="Send" />
+        <BtnMain disabled={!isAuthenticated || !amountEntered || !toCoinSelected} onClick={handleClick} text="Send" />
         </div>
         
       </div>
