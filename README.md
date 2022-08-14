@@ -5,13 +5,11 @@ _Smart Contract Deployed on **Rinkeby Test Network**_ -> 0x1fFF4551195F3864Bc754
 
 
 
-**Main Page**
 <a href="https://ibb.co/TqNJdgZ"><img src="https://i.ibb.co/k6PzvSp/Screenshot-310.png" alt="Screenshot-310" border="0"></a>
 
 
 <a href="https://ibb.co/YPJ2RVp"><img src="https://i.ibb.co/gmQyjcz/Screenshot-311.png" alt="Screenshot-311" border="0"></a>
 
-**Available Tokens**
 <a href="https://ibb.co/dLz2g9W"><img src="https://i.ibb.co/NmHjShV/Screenshot-312.png" alt="Screenshot-312" border="0"></a>
 
 
